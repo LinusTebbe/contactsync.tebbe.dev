@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Laravel\Socialite\Facades\Socialite;
+use Google_Service_People;
 
 class LoginController extends Controller
 {
@@ -36,5 +39,39 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    /**
+     * Redirect the user to the GitHub authentication page.
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function redirectToProvider()
+    {
+        return Socialite::driver('google')
+            ->setScopes(['openid', 'profile', 'email', Google_Service_People::CONTACTS_READONLY])
+            ->with(["access_type" => "offline", "prompt" => "consent select_account"])
+            ->redirect();
+    }
+
+    /**
+     * Obtain the user information from GitHub.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function handleProviderCallback()
+    {
+        $user = Socialite::driver('google')->user();
+
+        User::updateOrCreate([
+                'id' => $user->getId(),
+            ],[
+                'id' => $user->getId(),
+                'avatar' => $user->getAvatar(),
+                'access_token' => $user->token,
+                'refresh_token' => $user->refreshToken,
+                'expires_in' => $user->expiresIn,
+            ]
+        );
     }
 }
