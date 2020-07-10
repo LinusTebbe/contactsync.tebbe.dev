@@ -15,7 +15,7 @@ class CreateCredentialsTable extends Migration
     {
         Schema::create('credentials', function (Blueprint $table) {
             $table->string('id')->unique()->primary();
-            $table->text('user_id');
+            $table->string('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->text('password');
             $table->timestamps();
