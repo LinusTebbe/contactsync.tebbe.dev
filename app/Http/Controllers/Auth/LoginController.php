@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use App\User;
 use Google_Service_People;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
@@ -64,7 +65,7 @@ class LoginController extends Controller
     {
         $user = Socialite::driver('google')->user();
 
-        User::updateOrCreate([
+        $user = User::updateOrCreate([
                 'id' => $user->getId(),
             ],[
                 'id' => $user->getId(),
@@ -74,6 +75,8 @@ class LoginController extends Controller
                 'expires_in' => $user->expiresIn,
             ]
         );
+
+        Auth::login($user, true);
 
         return redirect(route('home'));
     }
