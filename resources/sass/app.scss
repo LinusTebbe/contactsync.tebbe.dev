@@ -1,8 +1,152 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
-// Variables
-@import 'variables';
+@import "variables";
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+html {
+    min-height: 100%;
+}
+
+body {
+    font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    margin: 0;
+    min-height: 100%;
+    color: $text-color;
+    background-color: $background-color;
+}
+
+nav a,
+a:active,
+a:link,
+a:visited {
+    color: $text-color;
+    text-decoration: none;
+}
+
+a:hover:not(.no-decoration) {
+    text-decoration: underline;
+    color: $text-color;
+}
+
+.shadow {
+    -webkit-box-shadow: $standard-shadow;
+    -moz-box-shadow: $standard-shadow;
+    box-shadow: $standard-shadow;
+}
+
+.border {
+    -webkit-border-radius: $default-border-radius;
+    -moz-border-radius: $default-border-radius;
+    border-radius: $default-border-radius;
+}
+
+nav {
+    padding: $default-padding;
+    background-color: $primary-color;
+}
+
+nav .logo {
+    font-size: $navbar-logo-size;
+}
+
+table > tr > td {
+    padding: 4px 0;
+}
+table > tr > td:first-child {
+    padding-right: 10px;
+}
+
+.float-right {
+    float: right;
+}
+
+.card {
+    @extend .shadow;
+    @extend .border;
+    background-color: $primary-color;
+    padding: $card-padding;
+    margin: 20px;
+}
+
+.pre {
+    white-space: pre-line;
+}
+
+.margin {
+    margin: 4px;
+    padding: 10px;
+}
+
+.strike-through {
+    text-decoration: line-through;
+}
+
+.two-col-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+}
+
+h2 {
+    margin: 0;
+}
+
+.button {
+    @extend .border;
+    display: inline-block;
+    padding: 10px 14px;
+    background-color: $card-dialog-background-color;
+}
+
+.button:hover {
+    text-decoration: none;
+    background-color: darken($card-dialog-background-color, 2);
+}
+
+form:not(.inline) input {
+    display: block;
+    width: calc(100% - 20px);
+}
+form > div > input {
+    @extend .border;
+    font-size: 14px;
+    color: $text-color;
+    font-family: unset;
+    border: $light-button-border;
+    padding: $input-padding;
+    background: unset;
+}
+form {
+    background-color: inherit;
+}
+form > div {
+    position: relative;
+    background-color: inherit;
+}
+form > div > label {
+    top: $input-padding;
+    left: $input-padding;
+    position: absolute;
+    transition: 0.1s;
+    cursor: text;
+}
+form > div > input:focus + label,
+form > div > input:valid + label,
+form > div > select + label {
+    font-size: 12px;
+    top: -7px;
+    padding: 0 5px;
+    left: 5px;
+    background-color: inherit;
+}
+
+button {
+    all: unset;
+    cursor: pointer;
+}
+
+.success {
+    background-color: $success;
+}
+
+.failed {
+    background-color: $failed;
+}

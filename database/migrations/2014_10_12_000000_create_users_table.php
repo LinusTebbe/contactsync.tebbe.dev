@@ -19,6 +19,8 @@ class CreateUsersTable extends Migration
             $table->text('access_token');
             $table->text('refresh_token');
             $table->text('expires_in');
+            $table->string('password')->nullable();
+            $table->rememberToken();
             $table->timestamps();
         });
     }

@@ -17,7 +17,8 @@ class User extends Authenticatable
         'avatar',
         'access_token',
         'refresh_token',
-        'expires_in'
+        'expires_in',
+        'remember_token'
     ];
 
     /**
@@ -37,6 +38,20 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [];
+
+    protected $keyType = 'string';
+    protected $primaryKey = 'id';
+    public $incrementing = false;
+
+    /**
+     * Get the password for the user.
+     *
+     * @return string
+     */
+    public function getAuthPassword()
+    {
+        return $this->access_token;
+    }
 
     public function credentials()
     {

@@ -4,7 +4,7 @@
     "description": "A simple platform for exporting your Google Contacts as XML.",
     "license": "MIT",
     "require": {
-        "php": "^7.2.5",
+        "php": "^7.3",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
         "google/apiclient": "^2.5",

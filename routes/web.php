@@ -1,5 +1,7 @@
 <?php
 
+use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,10 +16,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    if(Auth::check()) {
+        return redirect(\route('home'));
+    }
+
+    return view('index');
 });
 
-Route::get('login', 'Auth\LoginController@redirectToProvider');
-Route::get('login/callback', 'Auth\LoginController@handleProviderCallback');
+Route::get('/login', 'Auth\LoginController@redirectToProvider')
+    ->name('login');
+Route::get('/login/callback', 'Auth\LoginController@handleProviderCallback');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/dash', 'HomeController@index')->name('home');
+Route::post('/dash', 'HomeController@post');

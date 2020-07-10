@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/xmlPhonebook', 'XMLExportController@xmlPhoneBook');
+Route::get('/xmlPhonebook/phonebook.xml', 'XMLExportController@xmlPhoneBook');

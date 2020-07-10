@@ -1,0 +1,146 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);html {
+  min-height: 100%;
+}
+
+body {
+  font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  margin: 0;
+  min-height: 100%;
+  color: #fff;
+  background-color: #121212;
+}
+
+nav a,
+a:active,
+a:link,
+a:visited {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover:not(.no-decoration) {
+  text-decoration: underline;
+  color: #fff;
+}
+
+.shadow, .card {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.border, form > div > input, .button, .card {
+  border-radius: 4px;
+}
+
+nav {
+  padding: 14px;
+  background-color: #1c1c1c;
+}
+
+nav .logo {
+  font-size: 24px;
+}
+
+table > tr > td {
+  padding: 4px 0;
+}
+
+table > tr > td:first-child {
+  padding-right: 10px;
+}
+
+.float-right {
+  float: right;
+}
+
+.card {
+  background-color: #1c1c1c;
+  padding: 20px;
+  margin: 20px;
+}
+
+.pre {
+  white-space: pre-line;
+}
+
+.margin {
+  margin: 4px;
+  padding: 10px;
+}
+
+.strike-through {
+  text-decoration: line-through;
+}
+
+.two-col-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+}
+
+h2 {
+  margin: 0;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 14px;
+  background-color: #292929;
+}
+
+.button:hover {
+  text-decoration: none;
+  background-color: #242424;
+}
+
+form:not(.inline) input {
+  display: block;
+  width: calc(100% - 20px);
+}
+
+form > div > input {
+  font-size: 14px;
+  color: #fff;
+  font-family: unset;
+  border: 1px #fff solid;
+  padding: 10px;
+  background: unset;
+}
+
+form {
+  background-color: inherit;
+}
+
+form > div {
+  position: relative;
+  background-color: inherit;
+}
+
+form > div > label {
+  top: 10px;
+  left: 10px;
+  position: absolute;
+  transition: 0.1s;
+  cursor: text;
+}
+
+form > div > input:focus + label,
+form > div > input:valid + label,
+form > div > select + label {
+  font-size: 12px;
+  top: -7px;
+  padding: 0 5px;
+  left: 5px;
+  background-color: inherit;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+.success {
+  background-color: #388e3c;
+}
+
+.failed {
+  background-color: #c62828;
+}

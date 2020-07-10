@@ -1,19 +1,15 @@
-// Body
-$body-bg: #f8fafc;
-
-// Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
-$font-size-base: 0.9rem;
-$line-height-base: 1.6;
-
-// Colors
-$blue: #3490dc;
-$indigo: #6574cd;
-$purple: #9561e2;
-$pink: #f66d9b;
-$red: #e3342f;
-$orange: #f6993f;
-$yellow: #ffed4a;
-$green: #38c172;
-$teal: #4dc0b5;
-$cyan: #6cb2eb;
+$text-color: #fff;
+$background-color: #121212;
+$primary-color: lighten($background-color, 4);
+$success: #388e3c;
+$failed: #c62828;
+$card-dialog-background-color: lighten($primary-color, 5);
+$default-padding: 14px;
+$navbar-logo-size: 24px;
+$light-button-padding: 4px 10px;
+$light-button-border: 1px #fff solid;
+$card-padding: 20px;
+$standard-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+$default-border-radius: 4px;
+$input-padding: 10px;
+$blurry-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
